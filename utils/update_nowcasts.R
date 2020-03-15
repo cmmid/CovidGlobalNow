@@ -11,7 +11,7 @@ nowcasts <- files[stringr::str_detect(files, "nowcast.R")]
 
 # Set up cores -----------------------------------------------------
 
-future::plan("multicore", workers = future::availableCores())
+future::plan("multiprocess", workers = future::availableCores())
 
 data.table::setDTthreads(threads = 1)
 
@@ -22,7 +22,7 @@ message("Nowcasts found: ", paste(nowcasts, sep = " ", collapse = " "))
 casts <- furrr::future_map(nowcasts, function(nowcast) {
   message("Running nowcast for: ", nowcast)
 
-  source(file.path("inst/nowcasts", nowcast))
+  source(file.path("nowcasts", nowcast))
 
   return(NULL)
 }, .progress = TRUE)

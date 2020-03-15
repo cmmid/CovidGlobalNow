@@ -12,7 +12,7 @@ total_cases <-NCoVUtils::get_who_cases("Germany", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 
-cases <- TimeVaryingNCovR0::get_local_import_case_counts(total_cases, linelist,
+cases <- EpiNow::get_local_import_case_counts(total_cases, linelist,
                                                          cases_from = "2020-02-26")
 
 # Run analysis pipeline and save results ----------------------------------

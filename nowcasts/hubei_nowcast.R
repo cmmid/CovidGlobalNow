@@ -9,7 +9,7 @@ linelist <- NCoVUtils::get_international_linelist("China") %>%
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- NCoVUtis::get_who_cases(country = "China-Hubei", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases(country = "China-Hubei", daily = TRUE)
 
 # Assume that all cases are local -----------------------------------------
 

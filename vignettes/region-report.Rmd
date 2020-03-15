@@ -56,7 +56,7 @@ load_data("rate_spread_plot.rds", region)
 #### Implementation details
 
 ```{r, include = FALSE}
-details <- paste0("../inst/man/region-specific-methods/", region, ".md")
+details <- paste0("man/region-specific-methods/", region, ".md")
 if (file.exists(details)) {
   out <- knitr::knit_child(details)
 }

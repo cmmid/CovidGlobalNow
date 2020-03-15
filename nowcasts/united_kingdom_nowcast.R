@@ -28,4 +28,4 @@ rt_pipeline(
   linelist = linelist,
   target_folder = file.path("results/united-kingdom", target_date),
   target_date = target_date,
-  merge_actual_onsets = FALSE, save_plots = TRUE)
+  merge_actual_onsets = FALSE)

@@ -11,7 +11,7 @@ int_linelist <- NCoVUtils::get_international_linelist("Austria")
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- NCoVutils::get_who_cases("Austria", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases("Austria", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 

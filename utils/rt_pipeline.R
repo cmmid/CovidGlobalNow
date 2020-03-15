@@ -1,1 +1,1 @@
-rt_pipeline <- purrr::partial(EpiNow::rt_pipeline, samples = 10, save_plots = TRUE)
+rt_pipeline <- purrr::partial(EpiNow::rt_pipeline)

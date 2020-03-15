@@ -1,14 +1,9 @@
-# Packages ----------------------------------------------------------------
-require(TimeVaryingNCovR0)
-require(readxl)
-require(dplyr)
-require(tidyr)
-require(tibble)
-require(NCoVUtils)
-require(nCov2019)
+# Get utils ---------------------------------------------------------------
+
+source("utils/rt_pipeline.R")
 
 # Read in linelist --------------------------------------------------------
-linelist <- get_international_linelist("China")
+linelist <- NCoVUtils::get_international_linelist("China")
 
 # Get WHO sit rep case counts ---------------------------------------------
 

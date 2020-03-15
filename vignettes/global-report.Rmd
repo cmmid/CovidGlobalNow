@@ -35,7 +35,7 @@ library(kableExtra)
 target_date <- Sys.Date() - 1
 
 ## Countries to include - based on folder names
-regions <- list.files("../inst/results/")
+regions <- list.files("../results/")
 
 ## Put into alphabetical order
 regions <- regions[order(regions)]
@@ -45,10 +45,10 @@ names(regions) <- regions %>%
     stringr::str_to_title()
 
 ## Results directory (relative to report directory)
-results_dir <- "../inst/results"
+results_dir <- "../results"
 
 ## News updates
-updates <- list.files("../inst/man/news") %>% 
+updates <- list.files("../man/news") %>% 
   stringr::str_remove(".md") %>% 
   as.Date(.) %>% 
   sort()
@@ -148,8 +148,9 @@ names(regions) <- high_inc_regions
 estimates %>% 
   dplyr::rename(country = `Country/Region`) %>% 
   dplyr::filter(!country %in% c("Hong Kong", "Hubei")) %>% 
-  TimeVaryingNCovR0::global_map(variable = "Expected change in daily cases") +
-  ggplot2::guides(fill = ggplot2::guide_legend(title = "Expected change in daily cases", ncol = 2))
+  EpiNow::global_map(variable = "Expected change in daily cases") +
+  ggplot2::guides(fill = ggplot2::guide_legend(title = "Expected change in daily cases",
+                                               ncol = 2))
 ```
 
 <br>
