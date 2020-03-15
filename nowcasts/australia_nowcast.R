@@ -1,21 +1,23 @@
 # Packages ----------------------------------------------------------------
 require(EpiNow)
 require(NCoVUtils)
-require(dplyr)
 
+# Get tools  --------------------------------------------------------------
+
+source("utils/rt_pipeline.R")
 
 # Read in linelist --------------------------------------------------------
-linelist <- get_international_linelist("Australia") %>%
+linelist <- NCoVUtils::get_international_linelist("Australia") %>%
   tidyr::drop_na(date_confirm)
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- TimeVaryingNCovR0::get_who_cases("Australia", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases("Australia", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 
-cases <- TimeVaryingNCovR0::get_local_import_case_counts(total_cases, linelist) %>%
-  dplyr::filter(date >= "2020-03-01")
+cases <- EpiNow::get_local_import_case_counts(total_cases, linelist, 
+                                              cases_from = "2020-03-01")
 
 # Run analysis pipeline and save results ----------------------------------
 
@@ -23,8 +25,8 @@ cases <- TimeVaryingNCovR0::get_local_import_case_counts(total_cases, linelist) 
 target_date <- as.character(max(cases$date))
 
 ## Run and save analysis pipeline
-TimeVaryingNCovR0::analysis_pipeline(
+rt_pipeline(
   cases = cases,
   linelist = linelist,
-  target_folder = file.path("inst/results/australia", target_date),
+  target_folder = file.path("results/australia", target_date),
   target_date = target_date)
