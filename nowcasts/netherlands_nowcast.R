@@ -1,25 +1,22 @@
-# Packages ----------------------------------------------------------------
-require(TimeVaryingNCovR0)
-require(readxl)
-require(dplyr)
-require(tidyr)
-require(tibble)
+# Get utils ---------------------------------------------------------------
+
+source("utils/get_combined_linelist.R")
+source("utils/rt_pipeline.R")
 
 # Read in linelist --------------------------------------------------------
 linelist <- get_combined_linelist()
 
 # Read in international linelist --------------------------------------------------------
-int_linelist <- get_international_linelist("Netherlands") %>%
-  tidyr::drop_na(date_confirm)
+int_linelist <- NCoVUtils::get_international_linelist("Netherlands")
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- TimeVaryingNCovR0::get_who_cases("Netherlands", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases("Netherlands", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 
-cases <- TimeVaryingNCovR0::get_local_import_case_counts(total_cases, int_linelist) %>%
-  dplyr::filter(date >= "2020-02-27")
+cases <- EpiNow::get_local_import_case_counts(total_cases, int_linelist,
+                                              cases_from = "2020-02-27")
 
 # Run analysis pipeline and save results ----------------------------------
 
@@ -27,9 +24,9 @@ cases <- TimeVaryingNCovR0::get_local_import_case_counts(total_cases, int_lineli
 target_date <- as.character(max(cases$date))
 
 ## Run and save analysis pipeline
-TimeVaryingNCovR0::analysis_pipeline(
+rt_pipeline(
   cases = cases,
   linelist = linelist,
-  target_folder = file.path("inst/results/netherlands", target_date),
+  target_folder = file.path("results/netherlands", target_date),
   target_date = target_date,
   merge_actual_onsets = FALSE)

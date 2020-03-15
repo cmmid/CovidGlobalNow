@@ -1,23 +1,15 @@
-# Packages ----------------------------------------------------------------
-require(TimeVaryingNCovR0)
-require(readxl)
-require(dplyr)
-require(tidyr)
-require(tibble)
-require(NCoVUtils)
-require(nCov2019)
+# Get utils ---------------------------------------------------------------
+
+source("utils/rt_pipeline.R")
+
 # Read in linelist --------------------------------------------------------
-linelist <- get_international_linelist("China") %>%
-  tidyr::drop_na() %>%
-  dplyr::mutate(
-    import_status = "local",
-  ) %>%
+linelist <- NCoVUtils::get_international_linelist("China") %>%
   dplyr::filter(date_confirm > as.Date("2020-02-01")) %>%
   dplyr::filter(report_delay < 100)
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- TimeVaryingNCovR0::get_who_cases(country = "China-Hubei", daily = TRUE)
+total_cases <- NCoVUtis::get_who_cases(country = "China-Hubei", daily = TRUE)
 
 # Assume that all cases are local -----------------------------------------
 
@@ -34,10 +26,10 @@ cases <- total_cases %>%
 target_date <- as.character(max(cases$date))
 
 ## Run and save analysis pipeline
-TimeVaryingNCovR0::analysis_pipeline(
+rt_pipeline(
   cases = cases,
   linelist = linelist,
-  target_folder = file.path("inst/results/hubei", target_date),
+  target_folder = file.path("results/hubei", target_date),
   target_date = target_date,
   merge_actual_onsets = FALSE,
   earliest_allowed_onset = "2020-02-01")
