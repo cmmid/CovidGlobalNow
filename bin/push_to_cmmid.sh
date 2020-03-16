@@ -18,12 +18,13 @@ fi
 
 # Add new report to Repo
 
-cd TimeVaryingNCovR0
+cd CovidGlobalNow
 
 Rscript -e "EpiNow::copy_report(
                yaml = 'man/global-report-yaml.md',
                report = 'vignettes/cmmid_report/global-report.html',
                date = Sys.Date(),
+               lines_to_cut = 1:7,
                report_target = '../cmmid.github.io/topics/covid19/current-patterns-transmission/_posts/2020-03-02-global-time-varying-transmission.html')"
 
 
