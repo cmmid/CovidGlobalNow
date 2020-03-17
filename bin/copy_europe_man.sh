@@ -12,7 +12,9 @@ declare -a countries=("spain"
                       "belgium"
                       "netherlands"
                       "iran"
-                      "czechia")
+                      "czechia"
+                      "portugal"
+                      "qatar")
 
 for country in ${countries[@]}; do
   cp man/region-specific-methods/template/europe.md man/region-specific-methods/$country.md
