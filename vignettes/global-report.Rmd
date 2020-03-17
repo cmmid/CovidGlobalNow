@@ -222,7 +222,7 @@ knitr::kable(estimates, booktabs = TRUE, caption = ifelse(!knitr:::is_latex_outp
 
 ### Summary
 
-* Case counts by date, stratified by import status (local or imported), were constructed using the World Health Organization (WHO) situation reports and partial line-lists for each region [@WorldHealthOrganization:sitrep; @EricBrown2020, @kraemer2020epidemiological].
+* Case counts by date, stratified by import status (local or imported), were constructed using the World Health Organization (WHO) situation reports and partial line-lists for each region [@WorldHealthOrganization:sitrep; @EricBrown2020, @kraemer2020epidemiological, @NCoVUtils].
 * Case onset dates were estimated using case counts by date of report and a distribution of reporting delays fitted to partial line-lists from each region considered where available.
 * Censoring of cases was adjusted for by assuming that the number of cases is drawn from a binomial distribution.
 * Time-varying effective reproduction estimates were made with a 7-day sliding window using *EpiEstim* [@EpiEstim; @THOMPSON2019100356] adjusted for imported cases and assuming an uncertain serial interval with a mean of 4.7 days (95% CrI: 3.7, 6.0) and a standard deviation of 2.9 days (95% CrI: 1.9, 4.9) [@Nishiura2020.02.03.20019497].
@@ -242,7 +242,7 @@ knitr::kable(estimates, booktabs = TRUE, caption = ifelse(!knitr:::is_latex_outp
 
 #### Data
 
-We used partial line-lists from each region that contained the date of symptom onset, date of confirmation and import status (imported or local) for each case [@kraemer2020epidemiological] where available. The region reports give details of the steps taken where this data were not available. Daily case counts by date of report were extracted from the World Health Organization (WHO) situation reports for every location considered [@WorldHealthOrganization:sitrep; @EricBrown2020]. The case counts (and partial line-lists where available) were used to assemble the daily number of local and imported cases. Where the partial line-lists and case counts disagreed, it was assumed that the partial line-lists were correct and the WHO case counts were adjusted so that the overall number of cases occurring remained the same but the number of local cases being adjusted as needed.
+We used partial line-lists from each region that contained the date of symptom onset, date of confirmation and import status (imported or local) for each case [@kraemer2020epidemiological, @NCoVUtils] where available. The region reports give details of the steps taken where this data were not available. Daily case counts by date of report were extracted from the World Health Organization (WHO) situation reports for every location considered [@WorldHealthOrganization:sitrep; @EricBrown2020, @NCoVUtils]. The case counts (and partial line-lists where available) were used to assemble the daily number of local and imported cases. Where the partial line-lists and case counts disagreed, it was assumed that the partial line-lists were correct and the WHO case counts were adjusted so that the overall number of cases occurring remained the same but the number of local cases being adjusted as needed.
 
 #### Adjusting for reporting delays
 
