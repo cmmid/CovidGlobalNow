@@ -47,7 +47,7 @@ To run the docker image run:
 docker run -d -p 8787:8787 --name covidglobalnow -e USER=covidglobalnow -e PASSWORD=covidglobalnow covidglobalnow
 ```
 
-The rstudio client can be found on port :8787 at your local machines ip. The default username:password is time_vary:time_vary, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.
+The RStudio client can be found on port :8787 at your local machines ip. The default username:password is time_vary:time_vary, set the user with -e USER=username, and the password with - e PASSWORD=newpasswordhere. The default is to save the analysis files into the user directory.
 
 To mount a folder (from your current working directory - here assumed to be `tmp`) in the docker container to your local system use the following in the above docker run command (as given mounts the whole `covidglobalnow` directory to `tmp`).
 
