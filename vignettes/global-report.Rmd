@@ -256,7 +256,7 @@ We used the inferred number of cases to estimate the reproduction number on each
 
 We estimated the rate of spread ($r$) using linear regression with time as the only exposure and logged cases as the outcome for the overall course of the outbreak [@Park2019]. The adjusted R^2 value was then used to assess the goodness of fit. In order to account for potential changes in the rate of spread over the course of the outbreak we used a 7-day sliding window to produce time-varying estimates of the rate of spread and the adjusted R^2. The doubling time was then estimated using $\text{ln}(2) \frac{1}{r}$ for each estimate of the rate of spread.
 
-We report the 95% confidence intervals for all measures using the 2.5% and 97.5% quantiles. The analysis was conducted independently for all regions and is updated daily as new data becomes available. Confidence in our estimates is shown using the proportion of data that were derived using binomial upscaling.
+We report the 95% confidence intervals for all measures using the 2.5% and 97.5% quantiles. The analysis was conducted independently for all regions and is updated daily as new data becomes available. Confidence in our estimates is shown using the proportion of data that were derived using binomial upscaling. Code and results from this analysis can be found [here](https://epiforecasts.io/EpiNow) and [here](https://github.com/cmmid/CovidGlobalNow).
 
 `r if(!knitr:::is_latex_output()) '## Regional reports {.tabset}'`
 
