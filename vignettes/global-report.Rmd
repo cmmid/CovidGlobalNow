@@ -209,7 +209,8 @@ caption <- paste0("Latest estimates of the number of cases by date of onset, the
 estimates <- names(regions) %>% 
   purrr::map_dfr(~ dplyr::filter(estimates, `Country/Region` %in% .))
 
-knitr::kable(estimates, booktabs = TRUE, caption = ifelse(!knitr:::is_latex_output(), "", caption))  %>% 
+knitr::kable(estimates, booktabs = TRUE, longtable = TRUE,
+             caption = ifelse(!knitr:::is_latex_output(), "", caption))  %>% 
   kableExtra::kable_styling(latex_options = c("striped", "hold_position"),
                 full_width = TRUE) %>% 
   kableExtra::landscape()
