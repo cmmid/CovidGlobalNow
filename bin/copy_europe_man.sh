@@ -8,13 +8,23 @@ declare -a countries=("spain"
                       "sweden"
                       "united-kingdom"
                       "switzerland"
-                      "united-states"
                       "belgium"
                       "netherlands"
                       "iran"
                       "czechia"
                       "portugal"
-                      "qatar")
+                      "qatar"
+                      "greece",
+                      "slovenia"
+                      "finland"
+                      "israel"
+                      "ireland"
+                      "bahrain"
+                      "brazil"
+                      "estonia"
+                      "iceland"
+                      "philippines"
+                      "pakistan")
 
 for country in ${countries[@]}; do
   cp man/region-specific-methods/template/europe.md man/region-specific-methods/$country.md
