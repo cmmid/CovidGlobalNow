@@ -237,6 +237,7 @@ knitr::kable(estimates, booktabs = TRUE, longtable = TRUE,
 * Trends identified using our approach are robust to under-reporting assuming it is constant but absolute values may be biased by reporting rates. Pronounced changes in reporting rates may also impact the trends identified.
 * The reporting delay could not be estimated from line-list data for all regions. Region specific details are given in the individual regional reports.
 * Data on imported cases were only partically available, and even where available may not be fully complete. This may bias estimates upwards when overall case counts are low.
+* As our estimates are made at the date of symptom onset any changes in the time-varying parameters will be delayed by the incubation period. 
 
 ### Detail
 
