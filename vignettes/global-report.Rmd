@@ -231,13 +231,12 @@ knitr::kable(estimates, booktabs = TRUE, longtable = TRUE,
 
 ### Limitations
 
-* The estimated onset dates are based on current data for the delay in reporting. These data may not be representative of the underlying reporting distribution.
+* All data used are at a national/regional level taken from WHO situation reports; diagnostic capabilities and testing protocols may vary in different parts of each country/region, adding uncertainty to the reported numbers. The true number of infections reflect in a given number of confirmed cases probably varies substantially geographically.
+* The estimated onset dates are based on available data for the delay from symptom onset to confirmation, which mostly stems from the early days of the outbreak. These data may not be representative of the underlying delay distribution.
 * The estimate of not-yet-confirmed cases to scale up recent numbers is uncertain and relies on the observed delays to confirmation to remain constant over the course of the outbreak.
-* All data used is at a national/regional level; diagnostic capabilities may vary in different parts of each country/region, adding uncertainty to the reported numbers.
-* Trends identified using our approach are robust to under-reporting assuming it is constant but absolute values may be biased by reporting rates. Pronouced changes in reporting rates may also impact the trends identified.
-* Data on imported cases was only partially available. 
+* Trends identified using our approach are robust to under-reporting assuming it is constant but absolute values may be biased by reporting rates. Pronounced changes in reporting rates may also impact the trends identified.
 * The reporting delay could not be estimated from line-list data for all regions. Region specific details are given in the individual regional reports.
-* Data on imported cases may not be fully complete. This may bias estimates upwards when overall case counts are low.
+* Data on imported cases were only partically available, and even where available may not be fully complete. This may bias estimates upwards when overall case counts are low.
 
 ### Detail
 
