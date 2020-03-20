@@ -14,7 +14,7 @@ declare -a countries=("spain"
                       "czechia"
                       "portugal"
                       "qatar"
-                      "greece",
+                      "greece"
                       "slovenia"
                       "finland"
                       "israel"
@@ -24,7 +24,10 @@ declare -a countries=("spain"
                       "estonia"
                       "iceland"
                       "philippines"
-                      "pakistan")
+                      "pakistan"
+                      "estonia"
+                      "poland"
+                      "romania")
 
 for country in ${countries[@]}; do
   cp man/region-specific-methods/template/europe.md man/region-specific-methods/$country.md

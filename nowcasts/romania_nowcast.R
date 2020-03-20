@@ -7,11 +7,11 @@ source("utils/rt_pipeline.R")
 linelist <- get_combined_linelist()
 
 # Read in international linelist --------------------------------------------------------
-int_linelist <- NCoVUtils::get_international_linelist("Estonia")
+int_linelist <- NCoVUtils::get_international_linelist("Romania")
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- NCoVUtils::get_who_cases("Estonia", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases("Romania", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 
@@ -27,6 +27,6 @@ target_date <- as.character(max(cases$date))
 rt_pipeline(
   cases = cases,
   linelist = linelist,
-  target_folder = file.path("results/estonia", target_date),
+  target_folder = file.path("results/romania", target_date),
   target_date = target_date,
   merge_actual_onsets = FALSE)

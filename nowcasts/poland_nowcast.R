@@ -7,16 +7,16 @@ source("utils/rt_pipeline.R")
 linelist <- get_combined_linelist()
 
 # Read in international linelist --------------------------------------------------------
-int_linelist <- NCoVUtils::get_international_linelist("Estonia")
+int_linelist <- NCoVUtils::get_international_linelist("Poland")
 
 # Get WHO sit rep case counts ---------------------------------------------
 
-total_cases <- NCoVUtils::get_who_cases("Estonia", daily = TRUE)
+total_cases <- NCoVUtils::get_who_cases("Poland", daily = TRUE)
 
 # Join imported and local cases -------------------------------------------
 
 cases <- EpiNow::get_local_import_case_counts(total_cases, int_linelist,
-                                              cases_from = "2020-03-06")
+                                              cases_from = "2020-03-04")
 
 # Run analysis pipeline and save results ----------------------------------
 
@@ -27,6 +27,6 @@ target_date <- as.character(max(cases$date))
 rt_pipeline(
   cases = cases,
   linelist = linelist,
-  target_folder = file.path("results/estonia", target_date),
+  target_folder = file.path("results/poland", target_date),
   target_date = target_date,
   merge_actual_onsets = FALSE)
